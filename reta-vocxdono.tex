@@ -1,0 +1,427 @@
+%
+% Specifiko pri la reta vocxdonsistemo de TEJO.
+%
+% Teksto skribita de Pauxlo Ebermann.
+%
+
+\documentclass[draft]{scrartcl}
+
+% esperanta teksto.
+\usepackage[esperanto]{babel}
+
+
+\usepackage[utf8x]{inputenc}
+\usepackage{lmodern}
+
+% Klakeblaj ligoj ene de la dokumento
+\usepackage[final]{hyperref}
+
+\newenvironment{itemize*}{%
+  \begin{itemize}%
+  \setlength{\itemsep}{0pt}%
+  \setlength{\parsep}{0pt}%
+  \setlength{\parskip}{2pt plus 1pt}
+  \setlength{\topsep}{1pt}%
+}{%
+    \end{itemize}%
+}
+
+\newenvironment{enumerate*}{%
+  \begin{enumerate}%
+  \setlength{\itemsep}{0pt}%
+  \setlength{\parsep}{0pt}%
+  \setlength{\parskip}{2pt plus 1pt}
+  \setlength{\topsep}{1pt}%
+  \setlength{\partopsep}{0pt}%
+}{%
+    \end{enumerate}%
+}
+
+
+\begin{document}
+
+\title{Specifo pri la reta voĉdonsistemo de TEJO}
+\author{Paŭlo Ebermann}
+
+\maketitle
+
+\vspace*{-\baselineskip}
+
+\begin{abstract}
+  Detaloj de funkciado de la Reta Voĉdonsistemo de TEJO
+  el vidpunkto de regularo/reglamento kaj uzantoj.
+
+  La programo nun (4a de septembro 2010) funkcias tiel, kiel
+  estas priskribita en tiu ĉi dokumento (krom eblaj cimoj).
+\end{abstract}
+\enlargethispage{2\baselineskip}
+\vspace*{-\baselineskip}
+
+\tableofcontents
+
+\section{Juraj bazoj}
+
+\subsection{El la Komitata Reglamento: §5. Reta voĉdono}\label{reglamento}
+
+
+\begin{enumerate*}
+
+\item Ĉiu komitatano rajtas postuli retan voĉdonon pri iu ajn decidota
+punkto. Se la Komitato estas kunvenanta, reta voĉdono okazas se la
+Komitato akceptas la postulon. Se la Komitato ne estas kunvenanta,
+reta voĉdono aŭtomate okazas.
+
+\item Se du komitatanoj postulas sekretan voĉdonon, tiam la balotado
+okazu laŭ sekreta reta voĉdono. Se sekreta reta voĉdono ne teknike
+eblas, tiam la balotado okazu poŝte anstataŭ rete.
+
+\item Gvidas retan voĉdonadon la Ĝenerala Sekretario.
+
+\item Post elekto de nova estraro, la Komitato fiksas uzotan teknologion
+por retaj voĉdon\-adoj de la periodo de ĉi tiu estraro.
+
+\item La proceduro komencas per la ricevo de la propono far la Ĝenerala
+Sekretario. Plej malfrue unu semajno post la ricevo de la propono, la
+Ĝenerala Sekretario ekas la balotadon per reta informo al la
+komitatanoj.
+
+\item La balotado daŭras 28 tagojn. La estraro anoncu la rezulton plej
+malfrue unu semajnon post la fino de la balotado.
+
+\item Reta voĉdono estas kvoruma se almenaŭ duono de la komitato
+voĉdonas. Sindetenoj ankaŭ estas voĉdonoj.
+
+\item Se plejmulto de la partoprenantoj ne sindetenas, tiu el la poro kaj
+la kontraŭo kiu havas la plimulton venkas. Okaze de egaleco decidas la
+Prezidanto. Se simpla plejmulto de la voĉdonantoj sindetenas, oni
+konsideras tion decido ne voĉdoni retpoŝte pri tiu propono.
+\end{enumerate*}
+
+\subsection{Postuloj pri reta voĉdonsistemo} \label{postuloj}
+
+(De la laborgrupo pri reta voĉdonsistemo dum la Komitatkunveno 2008,
+akceptita de la Komitato.)
+
+\begin{enumerate*}
+\item Nur la Ĝenerala Sekretario povu gvidi balotojn.
+\item Estu distingo inter publikaj kaj sekretaj balotoj.
+  \begin{description}
+  \item[Komunaj trajtoj:] ~
+    \begin{enumerate*}
+    \item La ĜenSek povu vidi je ĉiu tempo, kiu jam voĉdonis en ajna baloto.
+    \item Ĉiuj povas vidi la suman rezulton de la baloto post la limdato.
+    \item Estas du specoj de sindetenoj: aktiva sindeteno kaj malĉeesto. La
+      ĜenSek sola povu vidi, kiu sindetenis ne donante voĉon. En la
+      kalkulo de la rezulto, ambaŭ specoj de sindetenoj sumiĝas kaj
+      nomiĝas "Sindetenoj".
+    \end{enumerate*}
+  \item [Publikaj balotoj:]
+    Ĉiu povu vidi, kiu kiel voĉdonis, sed nur post la limdato. Dum la
+    balotado, nenia informo estas publike videbla.
+
+  \item [Sekretaj balotoj:]
+    Neniu povu vidi la unuopajn voĉojn de la voĉdonintoj, sed nur la
+    suman rezulton de la baloto.
+  \end{description}
+\item Voĉdonoj ne estu ŝanĝeblaj.
+\end{enumerate*}
+
+\section{Uzantoj}
+La reta voĉdonsistemo havas liston de uzantoj.
+Ĉiu uzanto havas alirnomon kaj pasvorton por povi aliri la sistemon.
+Tiu pasvorto ne estas eltrovebla el la datumbazo.
+Krome la uzantolisto enhavas la plenan nomon kaj la funkcion
+(ekzemple la sekcion, kiu sendis la komitatanon A), kaj retpoŝtadreson
+por ĉiu.
+
+Uzanto havas unu el la jenaj roloj.
+\begin{enumerate*}
+\item Komitatano A aŭ B
+\item Komitatano C
+\item Estrarano
+\item Observanto
+\item ĜenSek
+\end{enumerate*}
+La uzantoj en roloj 1--3 estas kune ankaŭ la grupo \emph{Komitatanoj} -- tiuj
+estas la uzantoj, kiuj povas voĉdoni.
+
+(Eblus aldoni pliajn rolojn por uzo por voĉdonoj ene de komisionoj ktp.)
+
+\subsection{Komitatano A aŭ B}
+Tiuj homoj povas partopreni en ĉiu voĉdono (krom estraro-internaj voĉdonoj).
+
+\subsection{Komitatano C}
+Tiuj homoj povas partopreni en ĉiu voĉdono krom la elekto
+de komitatanoj C.\footnote{Regularo de TEJO, ĉapitro 2, paragrafo 12(2):
+\emph{La komitato konsistas el: [...] (iii) la komitatanoj~C, elektitaj de la komitatanoj A~kaj~B; [...]}}
+
+\subsection{Estrarano}
+La estraranoj ankaŭ estas plenaj komitatanoj, sed ili povas partopreni
+nek en la elekto de komitatanoj C\footnotemark[\thefootnote]\ nek en la elekto de estraranoj.\footnote{%
+  Regularo de TEJO, ĉapitro 2, paragrafo 12(4):
+  \emph{La estraranoj estas elektitaj de la komitatanoj A, B kaj C.}%
+}
+Krome (ekster la komitata reglamento) la reta voĉdonsistemo subtenas
+internajn voĉdonojn de la estraro, kie do nur estraranoj povas partopreni.
+(La rezultoj tamen estas videblaj por ĉiuj uzantoj.)
+
+\subsection{Observanto}
+Observantoj ne povas voĉdoni, sed ja (kiel ĉiu alia uzanto) vidi
+la rezultojn de voĉdonoj, la uzantoliston ktp.
+
+Observantoj povas esti eksaj komitatanoj\footnote{Kiam uzanto perdas sian
+  komitatanecon, ĜenSek kutime ŝanĝas ties rolon al \emph{Observanto}.}
+ aŭ aliaj aktivuloj de TEJO, kiuj interesiĝas pri la reta voĉdono de TEJO.
+Ekzemple, kutime la redaktoroj de gazetoj kaj la TEJO-volontulo havas tiun
+rolon, se ili ne estas jam komitatanoj.
+
+\subsection{ĜenSek}
+ĜenSek estas speciala rolo (kutime nur unu uzanto), kiu administras la
+sistemon. Li kutime mem ne havas voĉdonrajton. (La sama natura persono
+kutime ankaŭ havas uzantokonton kun la rolo \emph{Estrarano}, kiun li uzas
+por voĉdoni mem.)
+
+ĜenSek povas:
+\begin{itemize*}
+\item aldoni uzantojn
+\item ŝanĝi uzantajn rolojn/nomojn/funkciojn/retadresojn
+\item krei kaj sendigi novan pasvorton al uzantoj (kaze ke ili
+  forgesis la malnovan)
+\item forigi uzantojn
+\item krei novajn voĉdonojn
+\item forigi (erarajn) voĉdonojn
+\item vidi, kiu voĉdonis en voĉdonoj
+\end{itemize*}
+
+Sed ĜenSek ne povas:
+\begin{itemize*}
+\item vidi, kiel iu voĉdonis (krom en publikaj voĉdonoj post la limdato)
+\item ŝanĝi voĉdonojn
+\item vidi aŭ ŝanĝi pasvortojn de uzantoj
+\end{itemize*}
+
+\subsection{Aldono de uzantoj}
+
+ĜenSek povas/devas aldoni novajn komitatanojn al la uzantolisto.
+Tiucele ekzistas aparta formularo atingebla el la uzantolisto, per kiu
+eblas indiki uzanto-nomon (por ensaluto), plenan nomon, retadreson,
+funkcion kaj la rolon.
+
+Eblas indiki, ke la nova komitatano estas posteulo por jam ekzistanta
+komitatano.\footnote{Tio okazas kutime nur ĉe komitatanoj A, kie la landa
+  sekcio nomumas novan komitatanon anstataŭ malnova.} Tiam li ricevas
+ties rolon, kaj la ekzistanta komitatano iĝas \emph{observanto}.
+
+La sistemo poste kreas hazardan pasvorton kaj sendas ĝin retpoŝte al
+la nova uzanto, sen montri ĝin al ĜenSek.
+
+Se nuntempe estas aktivaj voĉdonoj, la nova komitatano ne tuj ricevas
+voĉdonrajton, krom en kazo de posteulo, tiam la nova uzanto rajtas nur
+partopreni en tiuj aktivaj voĉdonoj, kie la antaŭulo ankoraŭ ne voĉdonis.
+
+Laŭeble ĜenSek evitas ke estas aktivaj voĉdonoj dum aldoniĝas novaj
+komitatanoj.
+
+
+
+\subsection{Redakto de uzantoj}
+
+ĜenSek povas per speciala formularoj redakti la uzantonomon aŭ aliajn
+detalojn (retpoŝt\-adreson, funkcion, nomon, rolon).
+
+En kazo de rolo-ŝanĝo ankaŭ  ŝanĝiĝas la voĉdonrajtoj por la tiam aktivaj
+voĉdonoj (en ambaŭ direktoj).
+
+Kaze de ŝanĝo de uzantonomo la sistemo kreas novan (hazardan) pasvorton
+kaj sendas ĝin al la koncerna uzanto retpoŝte.
+
+Ankaŭ eblas (sen alia ŝanĝo) krei kaj sendigi novan (hazardan) pasvorton.
+
+Tamen neniu iel povas vidi la aktualan pasvorton aŭ meti iun specifan
+pasvorton.
+
+\subsection{Redakto de propra konto}
+
+Ĉiu uzanto povas per speciala formularo vidi siajn
+proprajn informojn: Plena nomo, retpoŝta adreso, funkcio, salutnomo,
+uzanto-roloj.
+
+Li povas redakti la retpoŝtan adreson kaj plenan nomon.\footnote{Li ne rajtas
+  ŝanĝi sian propran funkcion kaj salutnomon, por eviti trompojn, kaj
+  kompreneble ankaŭ ne sian rolon.}
+
+Li povas ŝanĝi sian propran pasvorton (por tio necesas entajpi la malnovan
+kaj dufoje la novan).
+
+
+\subsection{Forigo de uzantoj}
+
+ĜenSek povas per speciala formularo forigi uzanton el la sistemo.
+Tamen restas ĝiaj ĝisnunaj voĉoj kaj voĉdonrajtigoj de aktivaj
+kaj pasintaj voĉdonoj en la sistemo.
+
+(Tio kutime ne necesas, tamen: Eblas simple ŝanĝi la rolon
+ al \emph{observanto}.)
+
+% --------------------------------------------------------------------
+
+\section{Proponoj kaj voĉdonoj}
+
+Ĉiu propono konsistas el titolo, propona teksto, limdato kaj tipo
+de voĉdono (sekreta aŭ nesekreta, kaj kiu rajtas voĉdoni).
+
+Aldone ĉeestas la informo, kiu rajtas (aŭ rajtis) voĉdoni (kaj ĉu faris),
+kiom da voĉoj estis por ĉiu varianto (jes, ne, sindeteno) kaj (por publikaj
+voĉdonoj) kiu voĉis kiel.
+
+\subsection{Propono-listo}
+
+Estas listo de proponoj, por ĉiu uzanto atingebla. La listo
+enhavas en tabela formo superrigardajn informojn pri ĉiuj proponoj,
+kaj malfermaj kaj fermitaj:
+\begin{itemize*}
+\item Titolo
+\item tipo
+\item tempo de malfermo kaj fermo
+\item ĉu la aktuala uzanto jam voĉis (por malfermaj)
+\item resumo de la rezulto (por fermitaj).
+\end{itemize*}
+El la listo eblas atingi la unuopajn propono-detalo-paĝojn.
+
+\subsection{Kreado de novaj proponoj}
+
+ĜenSek povas krei novan proponon per tiucela formularo.
+Propono devas havi titolon, kiu aperas en la listo kaj devas esti unika
+inter ĉiuj proponoj) kaj proponan tekston. (La teksto estas tio, kio
+estas la \emph{decido}.)
+Krome necesas indiki la limtempon (kie ni proponas iun tempon taŭgan
+por komitataj voĉdonoj\footnote{Komitata reglamento, 5.6:
+  \emph{La balotado daŭras 28 tagojn. [...]}}) kaj la tipon de voĉdono,
+  kio decidas la sekretecon/publikecon kaj kiu rajtas voĉdoni. Almenaŭ la
+  sekvaj tipoj eblas:
+\begin{itemize*}
+\item normala publika voĉdono (ĉiu komitatano povas partopreni)
+\item normala sekreta voĉdono (ĉiu komitatano povas partopreni)
+\item elekto de Estraro (Estraranoj ne rajtas voĉdoni, sekreta)
+\item elekto de Komitatano C (nur Komitatanoj A/B rajtas voĉdoni, sekreta)
+\end{itemize*}
+Krome eblas krei voĉdonojn ene de la estraro.
+
+La formularo unue montras antaŭrigardon, kaj post ties konfirmo kreas
+la voĉdonon. Ni ankaŭ kreas por ĉiu voĉdonrajtanto tabeleron en la
+voĉdonanto-tabelo por tiu propono, indikanta ke li ankoraŭ ne voĉis.
+
+\subsection{Propono-detaloj} \label{propono-detaloj}
+
+Ĉiu uzanto povas rigardi detalan paĝon de ĉiu propono.
+
+Ĝi enhavas la jenajn informojn:
+\begin{itemize*}
+\item Ĉu la voĉdono estas ankoraŭ aktiva?
+\item Titolo
+\item Teksto de la propono
+\item tempo de malfermo kaj fermo
+\item nombro kaj listo de la voĉdonrajtantoj
+\item Ĉu la voĉdono estas publika?
+\end{itemize*}
+Post la fermo de la voĉdono:
+\begin{itemize*}
+\item La rezulton (kiom jes/ne/sindetenoj/ne voĉis)\footnote{%
+    Tie estas malgranda kontraŭdiro inter la reglamento
+    (sekcio~\ref{reglamento}) kaj la \emph{postuloj} (sekcio~\ref{postuloj}):
+    Laŭ la reglamento necesas scii, kiom da homoj entute voĉis, dum laŭ
+    la postuloj ni kunigu la aktivajn kaj pasivajn sindetenojn en unu nombro.
+    \par
+    Ni decidis ke la reglamento estas pli grava, do la programo montras ĉiujn
+    nombrojn.
+  }
+\item Se estis publika voĉdono, listoj de voĉdonantoj por la
+  unuopaj variantoj.\footnote{Ni tie distingas inter \emph{aktive sindetenis}
+    kaj \emph{ne voĉdonis}.}
+\end{itemize*}
+Se la aktuala uzanto estas ĜenSek:
+\begin{itemize*}
+\item Nombro kaj listo de voĉdonintoj
+\item Nombro kaj listo de nevoĉdonintoj
+\end{itemize*}
+
+Antaŭ la fermo de la voĉdono la nombro de voĉoj por unuopaj variantoj,
+aŭ kiel iu voĉis, ne estu montrita.
+
+\subsection{Voĉdono}
+
+Por ĉiu propono kaj ĉiu uzanto, kiu rajtas voĉdoni en ĝi,
+estas formularo kie la uzanto povas elekti inter la jenaj
+ebloj:
+\begin{itemize*}
+\item Jes
+\item Ne
+\item Sindeteno
+\end{itemize*}
+La formularo ankaŭ montras la tekston de la propono apud la
+voĉdonilo.
+
+La formularo estas atingebla de la detalo-paĝo
+(sekcio \ref{propono-detaloj}).
+
+La formularo nur estas montrata por uzantoj, kiuj rajtas voĉi
+pri tiu propono, kaj kiuj ankoraŭ ne voĉis. La sistemo certigas
+ke uzanto ne povas plurfoje voĉi.
+
+Por uzantoj, kiuj jam voĉis, ni anstataŭe montras, kiel
+tiu uzanto voĉis (kaze de publika voĉdono -- en sekreta voĉdono
+ni nur montras, ke li jam voĉis).
+
+Dum la voĉdono ni ŝanĝas la kvanton de jes/ne/sindetenoj en la
+propono, la \emph{jam voĉis}-econ de la voĉdonanto, kaj registras
+la voĉon en la voĉoj-listo.
+
+\section{Administrado}
+
+\subsection{Forigi ŝlosojn}
+
+La sistemo uzas ŝloso-tabelon por certigi, ke ĉiam nur unu uzanto samtempe
+povas uzi (kaj specife ŝanĝi) la propono-tabelon kun la voĉo-nombroj.
+
+Kaze de teknikaj problemoj povas okazi, ke iu ŝloso ne estas forigita --
+tiam neniu plu povas voĉdoni. Tiuokaze ĜenSek povas voki specialan
+tiucelan paĝon por forigi la ŝlosojn.
+
+\subsection{Instalado}
+
+La sistemo venas kun instal-programo. Tiu povas krei la datumbazajn
+tabelojn kaj krei la ĜenSek-uzanton. (Antaŭ la uzo necesas tamen
+krei la datumbazon kaj enmeti la alirdatumojn al ĝi en la koncernan
+konfiguran dosieron.)
+
+Alternative la instalilo ankaŭ kapablas forigi la instalitajn tabelojn, aŭ
+restarigi la pasvorton de ĜenSek (ĉar ĜenSek ja ne povas sendigi novan
+pasvorton al si, se li ne plu havas aliron pro forgeso).
+
+
+\section{Sekurecaj konsideroj}
+
+Por homoj (aŭ komputilaj programoj), kiuj havas rektan aliron
+al la datumbazo, ne eblas ekscii pasvortojn de uzantoj. Sed ja eblas
+ŝanĝi la pasvorton al iu dezirata. %\enlargethispage{\baselineskip}
+
+Ankaŭ eblas ekscii, kiu voĉas kiel (en publikaj balotoj) aŭ kiel
+estas la aktuala stato de la voĉdono (en ĉiuj balotoj) antaŭ la fino
+de la voĉdontempo.
+
+Eĉ pli, eblas ŝanĝi la rezulton de voĉdonoj, kaj
+en sekreta voĉdono ne ekzistas eblo rimarki tion. (En publika voĉdono
+la partoprenantoj mem povas kontroli, ĉu ilia propra voĉo estas
+ĝuste registrita, kaj iu povas rekalkuli la sumon.)
+
+Do, la sekurecaj postuloj en sekcio \ref{postuloj} nur estas validaj, se
+oni fidas la servilajn administrantojn (kaj ĉiujn, kiuj povas aliri la
+datumbazon).
+
+
+Tion ne eblas facile eviti sen pli larĝa uzo de kriptografio -- eblan
+vojon mi skizis en la dokumento \emph{Pripensoj pri la reta voĉdonsistemo}.
+
+
+
+\end{document}

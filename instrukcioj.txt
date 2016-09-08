@@ -1,0 +1,54 @@
+Instalinstrukcioj
+-----------------
+
+Por uzi la sistemon oni bezonas MySQL datumbazon (do certigu ke tia
+estas jam kreita antaŭ instalado de la sistemo).
+
+En la dosiero db.php en la funkcio dbPrefikso enmetu inter la
+apostrofojn la deziratan prefikson de tabelnomoj (tio ne estas
+devigita, sed utila por eviti problemojn kiam oni uzas datumbazon kiun
+oni uzas ankaŭ por aliaj aferoj).
+
+En la sama dosiero (db.php) en la funkcio dbMalfermu enmetu inter la
+apostrofojn en la unuaj kvar linioj la nomon de la datumbazo, la
+adreson de la datumbazservilo (povas esti 'localhost' aŭ la adreso de
+fora servilo), la datumbazuzantnomon kaj la pasvorton.
+
+La dosiero   lancxu.php   estas uzata por instali la sistemon. Por uzi
+ĝin oni bezonas pasvorton (por ke ne ĉiuj povos tuŝi la sistemon).
+En la komenco de la dosiero (lancxu.php) enmetu inter la apostrofojn
+la deziratan pasvorton (kiun vi uzos por la instalado).  En la sekvaj
+du linioj metu inter la apostrofojn la uzantnomon de la ĜenSek (poste
+neŝanĝebla sen reinstalado) kaj la komencan pasvorton de la ĜenSek
+(poste ŝanĝebla).
+
+Ĝi ankaŭ povas restarigi la ĜenSek-pasvorton, se tio necesas, aŭ
+malinstali la sistemon (t.e. forigi la datumbazajn tabelojn).
+
+Alŝutu ĉiujn dosierojn (krom tiun ĉi) en la celdosierujon, retumu
+al lancxu.php, elektu la ĝustan moduson, enmetu la pasvorton, kaj
+klaku la butonon.
+
+Se ĉio enordas la sistemo nun uzeblas! En la dosiero lancxu.php vi
+forigu la instaladan pasvorton, kaj/aŭ tuj la tutan dosieron (tiam
+necesas denova alŝutado por reinstali aŭ simile).
+
+
+Datumbazaj rajtoj:
+------------------
+
+* La instalado/malinstalado bezonas la rajtojn krei respektive
+  forigi tabelojn (CREATE TABLE/DROP TABLE).
+* La kutima uzado nur bezonas la rajtojn legi kaj ŝanĝi la datumbazon
+  (SELECT, INSERT, UPDATE, DELETE).
+=> Do vi povos ŝanĝi la rajtojn de la datumbaza uzanto post la
+  instalado, se vi volas, por akiri plian sekurecon.
+
+
+Solvi problemojn
+----------------
+
+Se iam ajn iel okazas problemo kun la ŝlosoj (uzantoj ne povas
+voĉdoni pro nesukceso akiri ŝloson aŭ io tia - dum la servilo bone
+funkcias tio teorie ne povas okazi), la ĜenSek retumu al
+foriguSxlosojn.php .

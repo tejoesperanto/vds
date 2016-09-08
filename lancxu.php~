@@ -1,0 +1,214 @@
+<?php
+
+ // ĉi tie metu pasvorton por ebligi instaladon. Forigu ĝin poste.
+$instalPasvorto = '';
+
+// la uzantnomo kaj komenca pasvorto de la administranta uzanto.
+$gxensek = 'GxenSek';
+$gxensekPasvorto = 'xxx';
+$gxensekPlenaNomo = "Ĝenerala Sekretario";
+
+
+// ---------- Post ĉi tie vi ne devos ŝanĝi ion. ---------------
+
+require_once('ink.php');
+
+metu_kapon("Instalado de la sistemo");
+
+echo "</div>\n\n";
+
+if ('' == $instalPasvorto) {
+  // la paĝo estas malŝaltita.
+?>
+<p>
+  Ĉi tiu paĝo povas instali la sistemon.
+
+Se vi vere volas fari tion (eble ĝi jam estas instalita?),
+redaktu la dosieron
+kaj enmetu instal-Pasvorton komence de ĝi. Poste revoku la paĝon.
+</p>
+</body>
+</html>
+<?php
+    exit();
+}
+
+
+if($_POST['pasvorto'] != $instalPasvorto)
+{
+  ?>
+<p>
+    Ĉi tiu paĝo preparas la sistemon antaŭ la unua uzo, malinstalas
+    ĝin aŭ helpas ĉe forgesita pasvorto.
+</p>
+  <form action="lancxu.php" method="post">
+<p>
+    Por lanĉi la sistemon, elektu la moduson kaj enmetu la
+    instaladan pasvorton.
+</p>
+<p>
+    <input name='moduso' type='radio' value='instali' />
+    Instali la sistemon.</p>
+    <p>Averto:
+    Se la sistemo jam estas preparigita, ĉiuj datenoj estos forstrekitaj
+    kaj la sistemo estos lanĉita denove!
+</p>
+<p>
+    <input name='moduso' type='radio' value='malinstali' />
+    Forigi ĉiujn datumbazajn tabelojn (malinstalo)
+</p>
+<p>
+    <input name='moduso' type='radio' value='ghensek' />
+    Nur rekreu la ĜenSek-konton kun la defaŭlta pasvorto
+    (uzenda kiam ĜenSek forgesis sian pasvorton).<br/>
+    (Tiun pasvorton eblas redakti antaŭe en la PHP-dosiero.)
+</p>
+    Pasvorto: <input name="pasvorto" type="password">
+    <button value="lanchu" type="submit">Lanĉu</button>
+</p>
+  </form>
+</body>
+</html>
+  <?php
+    exit();
+}
+
+// nun ni vere faras ion ...
+
+
+  function malfermuDatumbazon() {
+    $db = dbMalfermu();
+    if($db === false)
+      die('Malsukcesis malfermi la datumbazon!');
+    return $db;
+  }
+
+
+  function foriguTabelojn($db) {
+
+    $sukcese =
+      mysql_query('DROP TABLE IF EXISTS '.dbPrefikso().'gxeneralajxoj', $db) &&
+      mysql_query('DROP TABLE IF EXISTS '.dbPrefikso().'uzantoj', $db) &&
+      mysql_query('DROP TABLE IF EXISTS '.dbPrefikso().'proponoj', $db) &&
+      mysql_query('DROP TABLE IF EXISTS '.dbPrefikso().'vocxdonoj', $db) &&
+      mysql_query('DROP TABLE IF EXISTS '.dbPrefikso().'sxlosoj', $db) && 
+      mysql_query('DROP TABLE IF EXISTS '.dbPrefikso().'vocxdonantoj', $db) &&
+      mysql_query('DROP TABLE IF EXISTS '.dbPrefikso().'nevocxdonintoj', $db);
+
+    if($sukcese) {
+      echo '<p>Forigis la datumbazajn tabelojn!</p>';
+      return true;
+    }
+    else {
+      echo '<p>Renkontis eraron - ne sukcesis forstreki ĉiujn datumojn!</p>';
+      echo "<pre>" . mysql_error() . "</pre>";
+      return false;
+    }
+  }
+
+  function kreuTabelojn($db) {
+    if( /* mysql_query('CREATE TABLE '.dbPrefikso().
+	   'gxeneralajxoj (kiu int PRIMARY KEY, kio int)', $db) && */
+       mysql_query('CREATE TABLE '.dbPrefikso().
+		   'uzantoj (uzanto varchar(30) PRIMARY KEY,' .
+		   '         plena_nomo varchar(100), ' .
+		   '         retadreso varchar(100) COLLATE ascii_bin, ' .
+		   '         pasvorto char(40) COLLATE ascii_bin, '.
+		   '         flagoj int, ekde int)',
+		   $db) &&
+       mysql_query('CREATE TABLE '.dbPrefikso().
+		   'proponoj (id int PRIMARY KEY AUTO_INCREMENT, titolo varchar(50) UNIQUE, ' .
+		   '          enhavo text, flagoj int, ekde int, limtempo int,'.
+		   '          jesis int, neis int, sindetenis int)', $db) &&
+       mysql_query('CREATE TABLE '.dbPrefikso().
+		   'vocxdonoj (propono int, uzanto varchar(30), vocxo int,'.
+		   ' kiam int, PRIMARY KEY (propono, uzanto))', $db) &&
+       mysql_query('CREATE TABLE '.dbPrefikso().
+		   'sxlosoj (propono int PRIMARY KEY, uzanto varchar(30))', $db) &&
+       mysql_query('CREATE TABLE '.dbPrefikso().
+		   'vocxdonantoj (propono int, uzanto varchar(30))', $db) &&
+       mysql_query('CREATE TABLE '.dbPrefikso().
+		   'nevocxdonintoj (propono int, uzanto varchar(30))', $db) /*&&
+            mysql_query('INSERT INTO '.dbPrefikso().
+	      'gxeneralajxoj values(0, 0)', $db)*/ ) {
+      echo '<p>Kreis malplenajn datumbaztabelojn</p>';
+      return true;
+    }
+    else {
+      echo '<p>Renkontis eraron - la sistemo ne lanĉiĝis!</p>';
+      echo "<pre>" . mysql_error() . "</pre>";
+      return false;
+    }
+  }
+
+  function foriguĜenSek($db) {
+    if (mysql_query('DELETE FROM ' . dbPrefikso() . "uzantoj where uzanto = '".
+		    $GLOBALS['gxensek'] . "'")){
+      echo "<p>Forigis malnovan ĜenSek-konton.</p>";
+      return true;
+    }
+    else {
+      echo "<p>Ne sukcesis forigi ĜenSek-konton.</p>";
+      return false;
+    }
+  }
+
+  function kreuĜenSek($db) {
+    $ĝensek = $GLOBALS['gxensek'];
+    $kr_pasvorto = haketuPV($ĝensek, $GLOBALS['gxensekPasvorto']);
+
+    $sql =
+      'INSERT INTO '.dbPrefikso()."uzantoj " .
+      "   SET uzanto = '" . $ĝensek . "', ".
+      "       pasvorto = '" . $kr_pasvorto."', ".
+      "       flagoj = 4, ".
+      "       ekde = " . date('U');
+    //    echo "<code>" . $sql . "</code>";
+
+    if (mysql_query($sql, $db)) {
+      echo "<p>Kreis novan ĜenSek-konton</p>\n";
+      echo "<p>Bonvolu <a href='ensalutu.php'>ensaluti</a> " .
+	"per la ĜenSek-konto kaj ŝanĝu la pasvorton " . 
+	"(ĉe <em>miaj difinoj</em>).</p>";
+      return true;
+    }
+    else {
+      echo "<p>Io missukcesis, ne povis krei ĜenSek-konton.</p>";
+      return false;
+    }
+  }
+
+  $db = malfermuDatumbazon();
+
+  switch($_POST['moduso']) {
+  case 'instali':
+    foriguTabelojn($db) &&
+      kreuTabelojn($db) &&
+      kreuĜenSek($db);
+    break;
+  case 'malinstali':
+    foriguTabelojn($db);
+    break;
+  case 'ghensek':
+    foriguĜenSek($db) &&
+      kreuĜenSek($db);
+    break;
+  default:
+    echo "<p>Bonvolu reprovi, kaj tiam elektu unu el la tri modusoj!</p>";
+  }
+
+
+?>
+<p>Bonvolu redakti la dosieron kaj forigu la instaladan pasvorton.
+La linioj komence de la dosiero aspektu tiel:
+<pre style='border: thin solid; padding:1ex;'>
+&lt;?php
+
+ // ĉi tie metu pasvorton por ebligi instaladon. Forigu ĝin poste.
+$instalPasvorto = '';
+
+</pre>
+<p>Tio malebligas postan fuŝadon de la sistemo fare de ne-bonuloj.</p>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+/**
+ * Stilfolio por la voĉdonsistemo.
+ */
+
+
+body {
+    color: black;
+    background-color: rgb(220, 220, 220);
+
+    margin: 0;
+    padding: 0ex 1ex;
+}
+
+/* Ĉeloj de tabeloj estu vertikale supre, ne centre. */
+th, td {
+    vertical-align: top;
+}
+
+/* ***************** Formatado de uzanto- aŭ voĉdono-listoj ********** */
+
+.vocxdonoj td, .uzantolisto td {
+    border-width: thin;
+    border-style: dotted none;
+    padding: 2pt 4pt;
+}
+
+table.vocxdonoj, table.uzantolisto {
+    border-style: hidden;
+    border-collapse: collapse;
+}
+
+.vocxdonoj th, .uzantolisto th {
+    border-width: thin;
+    border-style: none dotted solid;
+/*    border-bottom-style: solid; */
+    padding: 4pt;
+}
+
+.vocxdonoj tr.subtitolo th {
+    font-weight: normal;
+    border-top: hidden;
+}
+
+.vocxdonoj td[title] {
+    text-align:right;
+}
+
+
+/* ********** Detaloj de uzanto (redaktilo por ĜenSek) **** */
+
+
+table.uzantodetaloj {
+    border-style: hidden;
+    border-collapse: collapse;
+}
+table.uzantodetaloj th {
+    vertical-align: top;
+    padding-right: 1ex;
+}
+
+table.uzantodetaloj td {
+    vertical-align: top;
+}
+
+
+/* ******* La datumoj de unuopa propono ********* */
+
+table.propono-datumoj, .rajtotabelo {
+    border-collapse: collapse;
+    border-style: hidden;
+}
+.rajtotabelo .tabel-interrompo {
+    border-style: hidden;
+}
+
+.propono-datumoj td, .propono-datumoj th,
+.rajtotabelo td, .rajtotabelo th {
+    padding: 1ex 2pt;
+    border-style: dotted none;
+    border-width: thin;
+}
+
+/* ************ La propona teksto ************************* */
+
+.propono {
+    background-color: rgb(240, 240, 240);
+    color:black;
+}
+
+p.propono {
+    margin: 1em;
+    max-width:30em;
+}
+
+/* ************ Gxen-Sek-specifaj pagxoj/pagxopartoj ***************** */
+
+.GxenSek {
+    padding: 2px;
+    margin: 2px;
+    background-color: rgb(210, 235, 210);
+}
+
+body.GxenSek {
+    padding: 1ex;
+    margin: 0;
+}
+
+/* ******** La kapo de la dokumento, kun varbaĵo kaj menuo. ********* */
+
+div.kapo {
+    margin:0px;
+    margin-bottom: 1ex;
+
+    background-image: url(/files/logo_tejo_website_color.png);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: right top;
+    padding-right: 100px;
+
+    min-height:90px;
+
+    background-color: white;
+    border-bottom: thin dotted;
+}
+
+
+p.vdsvarbado {
+    color: gray;
+    font-size: smaller;
+    border-bottom: thin dotted;
+
+    padding: 0.5ex;
+}
+
+p.menuo {
+    padding-bottom: 0.5ex;
+}
+
+p.menuo em {
+    /*
+     * Hmm, mi verŝajne iel volis formati la
+     * uzantonomon, sed mi ne memoras, kiel.
+     */
+}
+
+/* *********** */
+
