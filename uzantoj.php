@@ -77,7 +77,7 @@ echo "</tr>\n\n";
 // $kiomoj = array('Observanto' => 0,
 // 		'Komitatano' => 0,
 // 		'Komitatano A/B' => 0,
-// 		'Komitatano C' => 0,
+// 		'Komitatano Ĉ' => 0,
 // 		'Estrarano' => 0,
 // 		'ĜenSek' => 0);
 
@@ -114,7 +114,7 @@ echo '</table>';
 
 echo
 "<p>Entute: $i uzantoj (Komitatanoj: ".$kiomoj['Komitatano'].
-' (A/B: ' . $kiomoj["Komitatano A/B"] .', C: '. $kiomoj["Komitatano C"] .
+' (A/B: ' . $kiomoj["Komitatano A/B"] .', Ĉ: '. $kiomoj["Komitatano Ĉ"] .
 '), Estraranoj: '.$kiomoj['Estrarano'].
   ', ĜenSek: '.$kiomoj['ĜenSek'].', Observantoj: '.$kiomoj['Observanto'].').</p>';
 

@@ -393,7 +393,7 @@ function kreu_uzantdetaloformularon($informoj="")
  * Kreas rajtoelektilon (kiel parto de formularo):
  *<pre>
  *   * komitatano A/B
- *   * komitatano C
+ *   * komitatano Ĉ
  *   * Estrarano
  *   * Observanto
  *</pre>
@@ -404,7 +404,7 @@ function kreu_uzantdetaloformularon($informoj="")
  *    2 - estrarano
  *    4 - ĜenSek
  *    8 - Komitatano A aŭ B
- *   16 - Komitatano C
+ *   16 - Komitatano Ĉ
  * </pre>
  * Alternative povas esti "--", kio signifas ke ankoraŭ ne estas ajnaj
  * rajtoj (tio estas la defaŭlto, se oni tute forlasas tion).
@@ -419,8 +419,8 @@ function kreu_rajtoelektilon($flagoj="--")
 
   // la kutimaj rajtoj
   $rajtoj = array(array(1+8, "Komitatano A/B (rajtas partopreni ĉiujn voĉdonojn)"),
-		  array(1+16, "Komitatano C (ne rajtas elekti Komiatantojn C)"),
-		  array(1+2, "Estrarano (ne rajtas elekti Komitatanojn C kaj Estraranojn)"),
+		  array(1+16, "Komitatano Ĉ (ne rajtas elekti Komiatantojn Ĉ)"),
+		  array(1+2, "Estrarano (ne rajtas elekti Komitatanojn Ĉ kaj Estraranojn)"),
 		  array(0, "Observanto (ne rajtas voĉdoni entute)"));
 
   // ni rigardas, ĉu $flagoj estas inter ili.

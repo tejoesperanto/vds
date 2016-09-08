@@ -53,7 +53,7 @@ function estas_GxenSek($rajtoj=null) {
  *  2 = estraranoj
  *  4 = ĜenSek
  *  8 = Komitatanoj A+B
- * 16 = Komitatanoj C
+ * 16 = Komitatanoj Ĉ
  *
  * Se pluraj rajtas, la $flago estas sumo de tiuj valoroj.
  * Eble aldone estas metita bito 1 (por sekretaj voĉoj).
@@ -78,7 +78,7 @@ function kiuRajtas($flagoj) {
   case 8:
     return "Komitatanoj A+B";
   case 8+16:
-    return "Komitatanoj A+B+C";
+    return "Komitatanoj A+B+Ĉ";
   case 8+16+2:
     return "ĉiuj Komitatanoj";
   default:
@@ -93,7 +93,7 @@ $GLOBALS['VDS_ROLONOMOJ'] =
 	2 => "Estrarano",
 	4 => "ĜenSek",
 	8 => "Komitatano A/B",
-	16 => "Komitatano C",
+	16 => "Komitatano Ĉ",
 	);
 
 
@@ -433,19 +433,19 @@ function rajtolinio($flago, $priskribo, $miaj)
 function rajtotabelo($miaj) {
 
   rajtolinio(1, "Komitatanoj estas ĉiuj, kiuj rajtas voĉdoni ".
-	     "entute.<br/>Ili estas aŭ Komitatanoj A, B, C aŭ Estraranoj.",
+	     "entute.<br/>Ili estas aŭ Komitatanoj A, B, Ĉ aŭ Estraranoj.",
 	     $miaj);
   rajtolinio(2, "La estraro gvidas la asocion, elektita de ".
-	     "la Komitatanoj A, B kaj C. <br/>La estraranoj mem" .
+	     "la Komitatanoj A, B kaj Ĉ. <br/>La estraranoj mem" .
 	     "estas komitatanoj, sed ne rajtas elekti Estraron aŭ " .
-	     "Komitatanojn C.", $miaj);
+	     "Komitatanojn Ĉ.", $miaj);
   rajtolinio(8, "La kerno de la Komitato. Komitatanoj A estas reprezentantoj de ".
 	     "landaj kaj fakaj sekcioj de TEJO, Komitatanoj B reprezentantoj ".
 	     "de la individuaj membroj.<br/>Ili ĉiam rajtas voĉdoni.", $miaj);
-  rajtolinio(16, "Komitatanoj C estas elektataj de la Komitatanoj A kaj B, ".
+  rajtolinio(16, "Komitatanoj Ĉ estas elektataj de la Komitatanoj A kaj B, ".
 	     "ekzemple por havi iun specifan kompetencon en la Komitato. ".
 	     "<br/>Ili rajtas voĉdoni pri ĉio krom elektado de (pliaj) " .
-	     "Komitatanoj C.", $miaj);
+	     "Komitatanoj Ĉ.", $miaj);
   rajtolinio(4, "La Ĝenerala Sekretario traktas ĉiujn formalaĵojn ".
 	     "(do la <em>ĝenajn sekaĵojn</em>). Li (aŭ ŝi) kreas/forigas".
 	     " uzantokontojn kaj gvidas balotojn. <br/>Kutime por mem ".

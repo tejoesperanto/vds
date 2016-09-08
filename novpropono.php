@@ -266,7 +266,7 @@ tipoelektilo(1+2+8+16, "normala sekreta voĉdono");
 tipoelektilo(1  +8+16,
 	     "elekto de Estraro (Estraranoj ne rajtas voĉdoni, sekreta)");
 tipoelektilo(1  +8,
-	     "elekto de Komitatano C (nur Komitatanoj A/B rajtas voĉdoni,".
+	     "elekto de Komitatano Ĉ (nur Komitatanoj A/B rajtas voĉdoni,".
 	     " sekreta)");
 tipoelektilo(  2,
 	      "publika voĉdono nur por la Estraro.");
