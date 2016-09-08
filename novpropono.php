@@ -264,7 +264,8 @@ function tipoelektilo($valoro, $nomo, $default=false) {
 tipoelektilo(  2+8+16, "normala publika voĉdono", "defaŭlta");
 tipoelektilo(1+2+8+16, "normala sekreta voĉdono");
 tipoelektilo(1  +8+16,
-	     "elekto de Estraro (Estraranoj ne rajtas voĉdoni, sekreta)");
+tipoelektilo(    8+16,
+	     "voĉdono pri jarraporto (Estraranoj ne rajtas voĉdoni, publika)");
 tipoelektilo(1  +8,
 	     "elekto de Komitatano Ĉ (nur Komitatanoj A/B rajtas voĉdoni,".
 	     " sekreta)");
