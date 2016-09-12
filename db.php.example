@@ -1,0 +1,93 @@
+<?php
+
+date_default_timezone_set('Europe/Amsterdam');
+
+function dbPrefikso()
+{
+  return 'VDS_';
+}
+
+function dbMalfermu()
+{
+  $dbnomo = 'datumbaza nomo';
+  $dbservilo = 'localhost';
+  $dbuzanto = 'datumbaza uzanto';
+  $dbpasvorto = 'datumbaza pasvorto';
+
+  $db = mysql_connect($dbservilo, $dbuzanto, $dbpasvorto);
+
+  if($db === false)
+    return false;
+
+  mysql_select_db($dbnomo, $db);
+  mysql_query("USE NAMES 'utf8'", $db);
+  mysql_query("SET character_set_results = utf8", $db);
+  mysql_query("SET character_set_client = utf8", $db);
+  mysql_query("SET character_set_connection = utf8", $db);
+
+  return $db;
+}
+
+function dbElektu($tabelo, $kondicxo, $db=null)
+{
+  if ($db == null) {
+    $db = dbMalfermu();
+    if(!$db)
+      return false;
+    $necesas_fermi = true;
+  }
+  else {
+    $necesas_fermi = false;
+  }
+
+  $sql = 'SELECT * FROM '.dbPrefikso().$tabelo.' WHERE '.$kondicxo;
+  $sql_rez = mysql_query($sql, $db);
+
+  if($sql_rez === false)
+    return false;
+
+  $rez = array();
+  $i = 0;
+  while($vico = mysql_fetch_array($sql_rez))
+  {
+    $rez[$i] = $vico;
+    $i++;
+  }
+
+  if ($necesas_fermi) {
+    mysql_close($db);
+  }
+  else {
+    mysql_free_result($sql_rez);
+  }
+
+  return $rez;
+}
+
+function dbElektuDu($kolumnoj1, $tabelo1, $kondicxo1, $kolumnoj2, $tabelo2, $kondicxo2)
+{
+  $db = dbMalfermu();
+  if(!$db)
+    return false;
+
+  $sql = "SELECT $kolumnoj1 FROM ".dbPrefikso().$tabelo1." WHERE $kondicxo1 UNION SELECT $kolumnoj2 FROM ".
+    dbPrefikso().$tabelo2." WHERE $kondicxo2";
+  $sql_rez = mysql_query($sql, $db);
+
+  if($sql_rez === false)
+    return false;
+
+  $rez = array();
+  $i = 0;
+  while($vico = mysql_fetch_array($sql_rez))
+  {
+    $rez[$i] = $vico;
+    $i++;
+  }
+
+  mysql_close($db);
+
+  return $rez;
+}
+
+?>
