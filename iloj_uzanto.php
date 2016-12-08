@@ -1,5 +1,5 @@
 <?php
-
+require_once "Mail.php";
 /**
  * Diversaj iloj rilatantaj al uzanto-redaktado.
  */
@@ -530,18 +530,32 @@ ne respondu tiun ĉi, kaj ne sendu vian pasvorton al iu).
 MESAGXOFINO
  ;
 			     
-$rez = mail($retadreso, 
-	    "uzantonomo kaj pasvorto",
-	    $mesagxo,
-	    "From: gxen-sek@tejo.org\r\n". //TODO: prenu el DB
-	    "Content-Type: text/plain; charset=utf-8"
-	    );
-			     
-if($rez) {
+$from = '<gxen-sek@tejo.org>';
+$to = '<'.$retadreso.'>';
+$subject = 'Reta Voĉdonsistemo de TEJO';
+
+$headers = array(
+    'From' => $from,
+    'To' => $to,
+    'Subject' => $subject
+);
+
+$smtp = Mail::factory('smtp', array(
+        'host' => 'ssl://smtp.gmail.com',
+        'port' => '465',
+        'auth' => true,
+        'username' => 'johndoe@gmail.com',
+        'password' => 'passwordxxx'
+    ));
+
+$mail = $smtp->send($to, $headers, $mesagxo);
+
+if (!PEAR::isError($mail)) {
   echo "<p>Sendis retmesaĝon al la nova uzanto!</p>\n";
 }
 else {
   echo "<p>La mesaĝo ne estis akceptita por sendado.</p>\n";
+  echo('<p>' . $mail->getMessage() . '</p>');
 }
 return $rez;
 
